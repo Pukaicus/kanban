@@ -30,7 +30,9 @@ class BddManage {
         die("❌ Erreur de connexion : " . $e->getMessage());
     }
 }
-
+ public function getConnexion() {
+        return $this->connexion;
+    }
 
     /**
      * Retourne l'objet PDO pour effectuer des requêtes SQL.

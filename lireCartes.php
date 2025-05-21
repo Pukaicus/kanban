@@ -11,7 +11,7 @@ use bddmanager\BddManage;
 // Création de l'objet BddManage et connexion à la base
 $bdd = new BddManage();
 $bdd->connect();
-$pdo = $bdd->getPDO();
+$pdo = $bdd->getConnexion(); // ✅ Correction ici
 
 try {
     // Préparation et exécution de la requête pour récupérer toutes les cartes
