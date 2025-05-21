@@ -23,7 +23,7 @@ class BddManage {
      */
     public function connect() {
         try {
-            $this->pdo = new PDO("mysql:host=localhost;dbname=kanban;charset=utf8", "root", "");
+            $pdo = new PDO('mysql:host=localhost;dbname=mediatek86;charset=utf8', 'root', '');
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "✅ Connexion réussie";
         } catch (PDOException $e) {
