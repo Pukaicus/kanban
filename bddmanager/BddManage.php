@@ -21,17 +21,14 @@ class BddManage {
      * 
      * @return void
      */
-  public function connect() { 
-    try {
-        $this->connexion = new PDO('mysql:host=localhost;dbname=mediatek86;charset=utf8', 'root', '');
-        $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // echo "✅ Connexion réussie";
-    } catch (PDOException $e) {
-        die("❌ Erreur de connexion : " . $e->getMessage());
-    }
-}
- public function getConnexion() {
-        return $this->connexion;
+    public function connect() { 
+        try {
+            $this->pdo = new PDO('mysql:host=localhost;dbname=mediatek86;charset=utf8', 'root', '');
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // echo "✅ Connexion réussie"; // à désactiver si redirection après
+        } catch (PDOException $e) {
+            die("❌ Erreur de connexion : " . $e->getMessage());
+        }
     }
 
     /**
@@ -43,4 +40,3 @@ class BddManage {
         return $this->pdo;
     }
 }
-

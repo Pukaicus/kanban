@@ -11,12 +11,12 @@ use bddmanager\BddManage;
 // Création de l'objet BddManage et connexion à la base
 $bdd = new BddManage();
 $bdd->connect();
-$pdo = $bdd->getConnexion(); // ✅ Correction ici
+$pdo = $bdd->getPDO(); // ✅ Correction ici
 
 try {
     // Préparation et exécution de la requête pour récupérer toutes les cartes
     $stmt = $pdo->query("SELECT id, titre, description FROM cartes ORDER BY id DESC");
-    
+
     // Parcours des résultats et affichage des cartes
     while ($carte = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo '<div class="carte">';
@@ -28,3 +28,4 @@ try {
     // Gestion simple d'erreur en cas de problème avec la requête
     echo "Erreur lors de la récupération des cartes : " . $e->getMessage();
 }
+

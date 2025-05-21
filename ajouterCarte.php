@@ -4,8 +4,8 @@
  * - inclut le gestionnaire de base de données,
  * - crée une connexion PDO,
  * - récupère les données du formulaire POST (titre et description),
- * - insère une nouvelle carte dans la table `cartes`,
- * - puis redirige vers la page d'accueil `index.html`.
+ * - insère une nouvelle carte dans la table cartes,
+ * - puis redirige vers la page d'accueil index.html.
  */
 
 require_once "bddmanager/BddManage.php";
@@ -25,11 +25,19 @@ if (!empty($_POST['titre'])) {
     $titre = $_POST['titre'];
     $description = $_POST['description'] ?? '';
 
-    // Prépare et exécute la requête d'insertion dans la table 'cartes'
-    $stmt = $pdo->prepare("INSERT INTO cartes (titre, description) VALUES (?, ?)");
-    $stmt->execute([$titre, $description]);
+    try {
+        // Prépare et exécute la requête d'insertion dans la table 'cartes'
+        $stmt = $pdo->prepare("INSERT INTO cartes (titre, description) VALUES (?, ?)");
+        $stmt->execute([$titre, $description]);
 
-    // Redirige vers la page index.html après insertion
-    header("Location: index.html");
+        // Redirige vers la page index.html après insertion
+        header("Location: index.html");
+        exit;
+    } catch (PDOException $e) {
+        echo "Erreur lors de l'insertion : " . $e->getMessage();
+        exit;
+    }
+} else {
+    echo "Le champ titre est obligatoire.";
     exit;
 }
