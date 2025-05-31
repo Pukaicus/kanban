@@ -1,12 +1,14 @@
 <?php include 'head.php'; ?>
-<form action="controller/ajouter_personnel.php" method="POST">
+<form action="/controller/ajouter_personnel.php" method="POST">
         <h3>Ajouter personnel</h3>
         <label>Nom:</label>
         <input type="text" name="nom" required><br>
         <label>Prénom:</label>
         <input type="text" name="prenom" required><br>
+        <label>Téléphone:</label>
+        <input type="tel" name="telephone" required><br>
         <label>Email:</label>
-        <input type="email" name="email" required><br>
+        <input type="email" name="mail" required><br>
         <button type="submit">Ajouter</button>
       </form>
       <form action="/modifier-personnel" method="POST">
