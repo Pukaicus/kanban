@@ -1,5 +1,5 @@
 <?php
-require_once '../bdd/BddManage.php';
+require_once '../bddmanager/BddManage.php';
 use bddmanager\BddManage;
 
 $bdd = new BddManage();

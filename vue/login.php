@@ -31,16 +31,16 @@
         <h3>Afficher absences</h3>
         <button type="submit">Afficher</button>
       </form>
-      <form action="/ajouter-absence" method="POST">
+      <form action="/controller/ajouter_absence.php" method="POST">
         <h3>Ajouter absence</h3>
         <label>ID personnel:</label>
-        <input type="number" name="id_personnel" required><br>
+        <input type="number" name="idpersonnel" required><br>
         <label>Date de début:</label>
-        <input type="date" name="date_debut" required><br>
+        <input type="date" name="datedebut" required><br>
         <label>Date de fin:</label>
-        <input type="date" name="date_fin" required><br>
+        <input type="date" name="datefin" required><br>
         <label>Motif:</label>
-        <input type="text" name="motif" required><br>
+        <input type="number" name="idmotif" required><br>
         <button type="submit">Ajouter</button>
       </form>
       <form action="/modifier-absence" method="POST">
