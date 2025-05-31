@@ -27,7 +27,7 @@
         <input type="number" name="id" required><br>
         <button type="submit">Supprimer</button>
       </form>
-      <form action="/afficher-absences" method="GET">
+      <form action="/controller/afficher_absence.php" method="GET">
         <h3>Afficher absences</h3>
         <button type="submit">Afficher</button>
       </form>

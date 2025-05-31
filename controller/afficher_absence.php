@@ -1,5 +1,5 @@
 <?php
-require_once '../bdd/BddManage.php';
+require_once '../bddmanager/BddManage.php';
 use bddmanager\BddManage;
 
 $bdd = new BddManage();
@@ -11,14 +11,14 @@ try {
     $absences = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     echo "<h3>Liste des absences</h3>";
-    echo "<table border='1'><tr><th>ID</th><th>ID Personnel</th><th>Début</th><th>Fin</th><th>Motif</th></tr>";
+    // var_dump($absences);
+    echo "<table border='1'><tr><th>ID Personnel</th><th>Début</th><th>Fin</th><th>Motif</th></tr>";
     foreach ($absences as $absence) {
         echo "<tr>
-                <td>{$absence['id']}</td>
-                <td>{$absence['id_personnel']}</td>
-                <td>{$absence['date_debut']}</td>
-                <td>{$absence['date_fin']}</td>
-                <td>{$absence['motif']}</td>
+                <td>{$absence['idpersonnel']}</td>
+                <td>{$absence['datedebut']}</td>
+                <td>{$absence['datefin']}</td>
+                <td>{$absence['idmotif']}</td>
               </tr>";
     }
     echo "</table>";

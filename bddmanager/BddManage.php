@@ -1,6 +1,8 @@
 <?php
 namespace bddmanager;
 
+require_once __DIR__ . '/../dal/Dal.php';
+
 use PDO;
 use PDOException;
 use dal\Dal; // ✅ Import de la classe Dal
