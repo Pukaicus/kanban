@@ -11,7 +11,7 @@
         <input type="email" name="mail" required><br>
         <button type="submit">Ajouter</button>
       </form>
-      <form action="/modifier-personnel" method="POST">
+      <form action="/controller/modifier_personnel.php" method="POST">
         <h3>Modifier personnel</h3>
         <label>ID personnel:</label>
         <input type="number" name="id" required><br>
@@ -21,6 +21,8 @@
         <input type="text" name="prenom"><br>
         <label>Nouveau email:</label>
         <input type="email" name="email"><br>
+        <label>Nouveau téléphone:</label>
+        <input type="tel" name="telephone"><br>
         <button type="submit">Modifier</button>
       </form>
       <form action="/supprimer-personnel" method="POST">

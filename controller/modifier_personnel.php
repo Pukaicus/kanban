@@ -13,14 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
 
     try {
-        $stmt = $pdo->prepare("UPDATE personnel SET nom = :nom, prenom = :prenom, email = :email WHERE id = :id");
+        $stmt = $pdo->prepare("UPDATE personnel SET nom = :nom, prenom = :prenom, mail = :email WHERE idpersonnel = :id");
         $stmt->execute([
             ':id' => $id,
             ':nom' => $nom,
             ':prenom' => $prenom,
             ':email' => $email
         ]);
-        header('Location: ../login.php?success=modif_personnel');
+        header('Location: ../vue/login.php?success=modif_personnel');
         exit;
     } catch (PDOException $e) {
         die("Erreur : " . $e->getMessage());
