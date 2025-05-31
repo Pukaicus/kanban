@@ -3,6 +3,7 @@ namespace bddmanager;
 
 use PDO;
 use PDOException;
+use dal\Dal; // ✅ Import de la classe Dal
 
 /**
  * Classe de gestion de la connexion à la base de données Kanban.
@@ -15,17 +16,29 @@ class BddManage {
     private $pdo;
 
     /**
+     * Instance de Dal pour obtenir le DSN.
+     * @var Dal
+     */
+    private Dal $dal;
+
+    /**
+     * Constructeur : initialise l’objet Dal.
+     */
+    public function __construct() {
+        $this->dal = new Dal(); // ✅ Création de l’objet Dal
+    }
+
+    /**
      * Établit la connexion à la base de données.
-     * Initialise l'objet PDO avec la chaîne de connexion, 
-     * configure le mode d'erreur et gère les exceptions.
      * 
      * @return void
      */
-    public function connect() { 
+    public function connect() {
         try {
-            $this->pdo = new PDO('mysql:host=localhost;dbname=mediatek86;charset=utf8', 'root', '');
+            $dsn = $this->dal->getDsn(); // ✅ Récupère le DSN depuis Dal
+            $this->pdo = new PDO($dsn, 'root', '');
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "✅ Connexion réussie"; // à désactiver si redirection après
+            echo "✅ Connexion réussie";
         } catch (PDOException $e) {
             die("❌ Erreur de connexion : " . $e->getMessage());
         }

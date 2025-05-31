@@ -16,7 +16,7 @@ class Dal {
      * Constructeur : initialise la chaîne de connexion.
      */
     public function __construct() {
-        $this->dsn = 'mysql:host=localhost;dbname=kanban;charset=utf8';
+        $this->dsn = 'mysql:host=localhost;dbname=mediatek86;charset=utf8';
     }
 
     /**

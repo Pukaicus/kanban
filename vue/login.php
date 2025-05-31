@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>kanban login</title>
-</head>
-<body>
-    <form action="/ajouter-personnel" method="POST">
+<?php include 'head.php'; ?>
+<form action="controller/ajouter_personnel.php" method="POST">
         <h3>Ajouter personnel</h3>
         <label>Nom:</label>
         <input type="text" name="nom" required><br>
@@ -69,6 +61,4 @@
         <input type="number" name="id_absence" required><br>
         <button type="submit">Supprimer</button>
       </form>
-
-</body>
-</html>
+      <?php include 'footer.php'; ?>
