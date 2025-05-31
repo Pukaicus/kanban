@@ -25,7 +25,7 @@
         <input type="tel" name="telephone"><br>
         <button type="submit">Modifier</button>
       </form>
-      <form action="/supprimer-personnel" method="POST">
+      <form action="/controller/supprimer_personnel.php" method="POST">
         <h3>Supprimer personnel</h3>
         <label>ID personnel à supprimer:</label>
         <input type="number" name="id" required><br>
